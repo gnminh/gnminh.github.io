@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Flower website</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+BODY {
+    margin: auto;
+    padding: 0px;
+    background: #CCCCCC;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+#wrap {
+    background: #ffffff;
+    margin: auto;
+    width: 900px;
+    height: auto;
+}
+
+header {
+    background: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS7xqkPpD9JCtoD0LE8mfw594Ng79Bu9m-zC26qsXy12xhxrdFG) center/cover no-repeat;
+    height: 181px;
+    width: 900px;
+    position: relative;
+}
+
+#logo {
+    padding: 20px 0 0 20px;
+}
+
+#logo img {
+    height: 66px;
+    width: 191px;
+    object-fit: cover;
+}
+
+nav#menu_top {
+    background: rgba(255, 255, 255, 0.6);
+    width: 900px;
+    height: 40px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid #ccc;
+}
+
+.level1 {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 0;
+    position: relative;
+    overflow: visible;
+}
+
+.level1 li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    position: relative;
+}
+
+.level1 li a,
+.level1 li a:visited {
+    color: #B81F22;
+    text-decoration: none;
+    padding: 0 18px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+.level1 li a:hover {
+    color: green;
+    background: #ddd;
+}
+
+.level2 {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 999;
+    min-width: 150px;
+}
+
+.level1 li:hover > .level2 {
+    display: block;
+}
+
+.level2 li {
+    float: none;
+    display: block;
+    height: auto;
+    line-height: normal;
+    background: #ccc;
+    border-bottom: 1px solid #bbb;
+}
+
+.level2 li a {
+    display: block;
+    padding: 8px 15px;
+    height: auto;
+    line-height: normal;
+    color: #333 !important;
+    font-weight: normal;
+}
+
+.level2 li:hover {
+    background: #CC0;
+}
+
+#welcome {
+    background: #fff;
+    padding: 8px;
+    text-align: center;
+    border: dotted 2px #9C0;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#center_content {
+    width: 900px;
+    overflow: hidden;
+    border-top: 1px solid #e0e0e0;
+}
+
+#center_content #left {
+    width: 500px;
+    min-height: 200px;
+    float: left;
+    border-right: 1px dashed #ccc;
+    padding-bottom: 10px;
+}
+
+#center_content #middle {
+    width: 190px;
+    float: left;
+    border-right: 1px dashed #ccc;
+    padding-bottom: 10px;
+}
+
+#center_content #right_catalog {
+    width: 210px;
+    float: left;
+    padding-bottom: 10px;
+}
+
+.title {
+    color: #B81F22;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 12px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    clear: both;
+}
+
+.title img {
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.product {
+    border-bottom: dashed 1px #ccc;
+    overflow: hidden;
+    padding: 8px 10px 15px 10px;
+}
+
+.product .img {
+    float: left;
+    margin-right: 10px;
+}
+
+.product .img img {
+    width: 145px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.product .description {
+    overflow: hidden;
+    padding: 5px 10px;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+}
+
+.product .name {
+    color: #B81F22;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product .about {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+#promotion {
+    width: 100%;
+}
+
+.product_small {
+    margin: 8px 10px 12px 10px;
+    text-align: center;
+}
+
+.product_small .name {
+    text-align: center;
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 11px;
+}
+
+.product_small .img {
+    border-radius: 5px;
+    border: solid 1px #ddd;
+    padding: 6px;
+    display: block;
+}
+
+.product_small .img img {
+    width: 140px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+}
+
+#categories {
+    width: 100%;
+}
+
+.menu_right {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+
+.menu_right li {
+    padding: 6px 5px 6px 10px;
+    border-bottom: dashed 1px #ccc;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu_right li::before {
+    content: "»";
+    color: #aaa;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#footer {
+    background: #f9f9f9;
+    height: 90px;
+    border-top: dashed 1px #ccc;
+    overflow: hidden;
+}
+
+#footer .left {
+    float: left;
+    width: 650px;
+    padding: 15px 10px 10px 15px;
+    color: #555;
+    line-height: 1.8;
+}
+
+#footer .right {
+    float: right;
+    padding: 20px 20px 10px 10px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+#footer .right img {
+    height: 40px;
+    object-fit: contain;
+}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+        <header id="header">
+            <div id="logo">
+                <img src="https://assets.intleflorist.com/site/in3400103/Logo/Helensburgh.JPG" alt="Flower Shop" />
+            </div>
+        </header>
+
+        <nav id="menu_top">
+            <ul class="level1">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Introduction</a></li>
+                <li><a href="#">Flower Category</a>
+                    <ul class="level2">
+                        <li><a href="#">Sun Flower</a></li>
+                        <li><a href="#">Rose Flower</a></li>
+                        <li><a href="#">Lily Flower</a></li>
+                        <li><a href="#">Tulips Flower</a></li>
+                    </ul>
+                </li>
+                <li><a href="dangky.html">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="lienhe.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div id="welcome">
+            <marquee direction="left" behavior="scroll" scrollamount="4">
+                Welcome to the online sales website - Flower Shop
+            </marquee>
+        </div>
+
+        <section id="center_content">
+
+            <div id="left">
+                <div class="title">
+                    <img src="https://png.pngtree.com/png-clipart/20210311/original/pngtree-bright-red-flower-clipart-png-image_5976092.jpg" /> New Product
+                </div>
+
+                <div class="product">
+                    <div class="img"><img src="https://assets.eflorist.com/site//EF-7933/assets/products/PZM_/tfweb427a.jpg" /></div>
+                    <div class="description">
+                        <p class="name">Yellow Rose</p>
+                        <p class="about">Yellow roses are a special gift for women. Yellow roses are truly a more meaningful gift for relatives and friends.</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="img"><img src="https://assets.eflorist.com/site/EF-29009/assets/products/PZM_/sku4421618.jpg" /></div>
+                    <div class="description">
+                        <p class="name">Purple rose</p>
+                        <p class="about">A beautiful bouquet of purple roses is an expression of affection and respect for the person you love.</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="img"><img src="https://assets.eflorist.com/site//EF-7933/assets/products/PZM_/tfweb427a.jpg" /></div>
+                    <div class="description">
+                        <p class="name">Yellow Rose</p>
+                        <p class="about">Yellow roses are a special gift for women. Yellow roses are truly a more meaningful gift for relatives and friends.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="middle">
+                <div id="promotion">
+                    <div class="title">
+                        <img src="https://i.pinimg.com/736x/1b/54/c0/1b54c0b015e789427be76c0df024262f.jpg" /> Promotion
+                    </div>
+
+                    <div class="product_small">
+                        <div class="name">Tulips Flower</div>
+                        <div class="img"><img src="https://assets.eflorist.com/site/EF-27904/assets/products/PZM_/sku4673766.jpg" /></div>
+                    </div>
+
+                    <div class="product_small">
+                        <div class="name">Purple rose</div>
+                        <div class="img"><img src="https://assets.eflorist.com/site/EF-29009/assets/products/PZM_/sku4421618.jpg" /></div>
+                    </div>
+
+                    <div class="product_small">
+                        <div class="name">Yellow Rose</div>
+                        <div class="img"><img src="https://assets.eflorist.com/site//EF-7933/assets/products/PZM_/tfweb427a.jpg" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="right_catalog">
+                <aside id="categories">
+                    <div class="title">
+                        <img src="https://static.vecteezy.com/system/resources/previews/059/569/625/non_2x/ornamental-lace-pixel-art-vector.jpg" /> Flower catalog
+                    </div>
+                    <ul class="menu_right">
+                        <li>Purple rose</li>
+                        <li>Sun Flower</li>
+                        <li>LiLy Flower</li>
+                        <li>Blue rose</li>
+                        <li>Purple orchids</li>
+                        <li>Yellow rose</li>
+                        <li>Immortal flowers</li>
+                        <li>Tulips Flower</li>
+                    </ul>
+                </aside>
+            </div>
+
+        </section>
+
+        <div style="clear:both"></div>
+        <footer id="footer">
+            <div class="left">
+                Flower Shop Co., Ltd - Vietnam Branch<br />
+                Addres: 01 - Hoa Binh - Ninh Kieu Dist - CanTho City<br />
+                Tel: 0900000001
+            </div>
+            <div class="right">
+                <span style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 22px; color: #999; letter-spacing: 1px;">flower shop</span>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
