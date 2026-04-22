@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .registration-container {
+        width: 600px;
+    }
+
+    h2 {
+        color: #800000;
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #a9a9a9;
+        margin: 15px 0;
+    }
+
+    .form-group {
+        display: flex;
+        margin-bottom: 12px;
+        align-items: center;
+    }
+
+    .form-group > label.main-label {
+        width: 150px;
+        color: #336699;
+        font-size: 13px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 200px;
+        padding: 4px;
+        border: 1px solid #a9a9a9;
+    }
+
+    /* Tuỳ chỉnh cho phần Birthday */
+    .birthday-inputs {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .birthday-inputs select {
+        padding: 3px;
+        border: 1px solid #a9a9a9;
+    }
+
+    .birthday-inputs input.short-input {
+        width: 40px;
+    }
+
+    .birthday-inputs input.medium-input {
+        width: 60px;
+    }
+
+    .hint {
+        color: #336699;
+        font-size: 13px;
+        margin-left: 5px;
+    }
+
+    /* Tuỳ chỉnh cho phần First Name / Last Name */
+    .inline-group input[type="text"] {
+        width: 120px;
+    }
+
+    .last-name-label {
+        color: #336699;
+        font-size: 13px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+
+    /* Tuỳ chỉnh cho phần Interests (Checkbox) */
+    .interests-section {
+        align-items: flex-start;
+    }
+
+    .checkbox-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 50px;
+        row-gap: 8px;
+        margin-left: 30px;
+    }
+
+    .checkbox-item {
+        color: #336699;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+        margin: 0;
+    }
+
+    /* Nút Submit */
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    button {
+        background: linear-gradient(to bottom, #d30000 0%, #800000 100%);
+        color: white;
+        border: 1px solid #5a0000;
+        padding: 8px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3), inset 0 2px 2px rgba(255,255,255,0.3);
+    }
+
+    button:hover {
+        background: linear-gradient(to bottom, #e60000 0%, #990000 100%);
+    }
+</style>
+</head>
+<body>
+
+<div class="registration-container">
+    <h2>REGISTRATION</h2>
+    <hr>
+    
+    <div class="form-group">
+        <label class="main-label">Username:</label>
+        <input type="text" name="username">
+    </div>
+    <div class="form-group">
+        <label class="main-label">Password:</label>
+        <input type="password" name="password">
+    </div>
+    <div class="form-group">
+        <label class="main-label">Re-type<br>Password:</label>
+        <input type="password" name="retype_password">
+    </div>
+    
+    <hr>
+    
+    <div class="form-group">
+        <label class="main-label">Birthday:</label>
+        <div class="birthday-inputs">
+            <select name="month">
+                <option value="">[select one]</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select> ,
+            <input type="text" class="short-input" name="day"> ,
+            <input type="text" class="medium-input" name="year">
+            <span class="hint">(Month Day, Year)</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="main-label">Images:</label>
+        <input type="file" name="image">
+    </div>
+    
+    <hr>
+    
+    <div class="form-group inline-group">
+        <label class="main-label">First Name:</label>
+        <input type="text" name="firstname">
+        <label class="last-name-label">Last Name:</label>
+        <input type="text" name="lastname">
+    </div>
+    
+    <hr>
+    
+    <div class="form-group interests-section">
+        <label class="main-label">Interests (optional):</label>
+        <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Entertainment"> Entertainment</label>
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Business"> Business</label>
+            
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Home & Family"> Home & Family</label>
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Computers & Technology"> Computers & Technology</label>
+            
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Health"> Health</label>
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Personal Finance"> Personal Finance</label>
+            
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Music"> Music</label>
+            <label class="checkbox-item"><input type="checkbox" name="interest" value="Small Business"> Small Business</label>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="button-container">
+        <button type="button">REGISTER</button>
+    </div>
+</div>
+
+</body>
+</html>
